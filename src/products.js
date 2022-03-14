@@ -10,35 +10,35 @@ import AddProduct from './addproduct.js'
 const products = [
   {"id":" 1",
   "imagesurl" : "https://trademe.tmcdn.co.nz/photoserver/1024sq/1716498066.jpg",
-  "rent" : "$400",
+  "rent" : "400",
   "bedrooms" : "3",
   "property_type" : "House",
   "location" : "Massey",
   "description" : "The stunning living room comes with an open-plan kitchen."},
   {"id":" 2",
   "imagesurl" : "https://trademe.tmcdn.co.nz/photoserver/plus/1714588352.jpg",
-  "rent" : "$650",
+  "rent" : "650",
   "bedrooms" : "4",
   "property_type" : "House",
   "location" : "Otara",
   "description" : "This well-thought-out spacious two-bedrooms, one bathroom fully furnished apartment is most definitely one not to miss!"},
   {"id":" 3",
   "imagesurl" : "https://trademe.tmcdn.co.nz/photoserver/plus/1716283866.jpg",
-  "rent" : "$380",
+  "rent" : "380",
   "bedrooms" : "1",
   "property_type" : "Apartment",
   "location" : "City",
   "description" : "You'll enjoy cooking in the modern kitchen and relaxing in the generous and bright living area. Enjoy your evenings on the private roof-top garden terrace."},
   {"id":" 4",
   "imagesurl" : "https://trademe.tmcdn.co.nz/photoserver/plus/1714837989.jpg",
-  "rent" : "$780",
+  "rent" : "780",
   "bedrooms" : "5",
   "property_type" : "House",
   "location" : "Mt Albert",
   "description" : "Equipped with all of the necessities and fully furnished with appliances and whiteware - this is truly a rare find."},
   {"id":" 5",
   "imagesurl" : "https://trademe.tmcdn.co.nz/photoserver/plus/1716175585.jpg",
-  "rent" : "$550",
+  "rent" : "550",
   "bedrooms" : "3",
   "property_type" : "House",
   "location" : "Birkenhead",
@@ -82,7 +82,7 @@ useEffect(() => {
         if (sortProperty === 'location') {
           return a.location.localeCompare(b.location);
         } else {
-          return b[sortProperty] - a[sortProperty];
+          return a[sortProperty] - b[sortProperty];
         }
       });
       setData(sorted);
@@ -107,6 +107,7 @@ useEffect(() => {
       <select onChange={(e) => setSortType(e.target.value)}> 
         <option value="id">id</option>
         <option value="location">Location</option>
+        <option value="rent">Rent</option>
       </select>
       </div>
         
@@ -117,6 +118,7 @@ useEffect(() => {
           <div className={styles.image_container}><img className={styles.products_image} src={product.imagesurl} alt="product"/></div>
           <h2 className={styles.product_location}>{product.location}</h2>
           <h4 className={styles.product_location}>{product.property_type}</h4>
+          <h4 className={styles.product_location}>{product.rent}</h4>
           <p className={styles.product_desc}>{product.bedrooms} bedrooms</p>
           <p className={styles.product_desc}>{product.description}</p>
           </div>
