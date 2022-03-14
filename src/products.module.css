@@ -19,9 +19,13 @@
 }
 
 .products_container{
-    width: 23%;
+    width: 20%;
+    height: 60vh;
     float: left;
     margin: 1%;
+    line-height: 2vh;
+    background-color:rgb(125, 119, 114);
+    padding: 1vw;
 }
 
 .products_title{
