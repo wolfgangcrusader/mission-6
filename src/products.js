@@ -118,7 +118,7 @@ useEffect(() => {
           <div className={styles.image_container}><img className={styles.products_image} src={product.imagesurl} alt="product"/></div>
           <h2 className={styles.product_location}>{product.location}</h2>
           <h4 className={styles.product_location}>{product.property_type}</h4>
-          <h4 className={styles.product_location}>{product.rent}</h4>
+          <h4 className={styles.product_location}>Rent: {product.rent}</h4>
           <p className={styles.product_desc}>{product.bedrooms} bedrooms</p>
           <p className={styles.product_desc}>{product.description}</p>
           </div>
