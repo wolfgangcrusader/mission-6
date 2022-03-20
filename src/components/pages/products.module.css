@@ -1,53 +1,79 @@
-.listings{
-    position: relative;
-    
+.listings {
+  position: absolute;
+  background-color: #bababa;
+  width: 100%;
+
 }
 
-.title{
-    color:rgb(255, 255, 255);
-    text-align: center;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color:rgb(163, 162, 162);
-    width: 100%;
-    height: 8vh;
-    display: block;
-    position: relative;
+.searchbox {
+  position: relative;
+  width: 100vw;
+  height: 28vh;
+  background-color: white;
+  padding-top: 12vh;
 }
 
-.modalbutton{
-    position: absolute;
-    left: 80%;
-    top: 4%;
-    background-color:rgb(125, 119, 114);
-font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
-    
+.searchbox h1 {
+  text-align: center;
+  color: #535353;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 1.2em;
 }
 
-.products_container{
-    width: 20%;
-    height: 65vh;
-    float: left;
-    margin: 1%;
-    line-height: 1vh;
-    background-color:rgb(125, 119, 114);
-    padding: 1vw;
+.districts, .suburbs, .property_type {
+  width: 12%;
+  float: left;
+  font-size: 0.7vw;
+  margin: 0.2vw;
 }
 
-.products_image{
-    background-color:rgb(255, 255, 255);  
-    width: 100%;
-    height: 30vh;
-    vertical-align: middle;
+.price_from, .price_to, .bedrooms, .bathrooms, .fibre, .pet_friendly{
+width: 8%;
+float: left;
+  font-size: 0.7vw;
+  margin: 0.2vw;  
 }
 
-.products_content{
-background-color:rgb(125, 119, 114);
-color:white;
-font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.submit{
+border: none;
+background-color:#BF163D;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+color: #FFFFFF;
+height: 8vh;
+width: 8vw;
+margin-left: 1vw;
 }
 
-.container{
+.container {
+  background-color: #bababa;
+  width: 100%;
+}
+
+.images{
+width: 100%;
+}
+
+.card {
+  background-color: rgb(190, 189, 189);
+  width: 20vw;
+  float: left;
+  height: 50vh;
+  margin: 0.5vw;
+}
+
+.products_content {
+  background-color: rgb(255, 255, 255);
+  color: rgb(102, 102, 102);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding-top: 1vw;
+  padding-left: 1vw;
+  height: 50vh;
+}
+
+/* .listcontainer{
     width: 40%;
     position: relative;
     left: 30%;
@@ -58,13 +84,40 @@ font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubunt
     text-align: center;
     border-radius: 10px;
     padding: 2vw;
+} */
+
+.product1,
+.product3,
+.product4,
+.product5,
+.product6 {
+  font-size: 0.8vw;
+}
+.product2 {
+  font-size: 1vw;
 }
 
-.product_desc{
-    line-height: 3vh;
+.product4 {
+  position: absolute;
+  top: 45vh;
+  letter-spacing: 0.2vw;
 }
 
-#input{
-    background-color:rgb(218, 216, 216);
-    
+.product5 {
+  font-weight: bold;
+  position: absolute;
+  left: 74%;
+  top: 45vh;
 }
+
+.product6 {
+  font-weight: bold;
+  position: absolute;
+  left: 28%;
+  top: 45vh;
+}
+
+.container a {
+  text-decoration: none;
+}
+

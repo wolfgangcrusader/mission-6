@@ -31,7 +31,7 @@ const onSubmit = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.listcontainer}>
         <form>
       <h2>Add Listing</h2>
 

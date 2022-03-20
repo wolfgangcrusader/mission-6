@@ -1,0 +1,110 @@
+.navbar-main-body {
+    height: 11vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid#be163c;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+  }
+  
+  /*everything inside top section of navabr starts here */
+  
+  .navbar-main-body-top {
+    height: 9vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar-logo-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .property-logo-image {
+    height: 100%;
+    margin-left: 2.5%;
+    margin-top: 1%;
+  }
+  
+  .navbar-risk-management-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 90%;
+    width: 100%;
+  }
+  
+  .risk-management-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: #f9f9f8;
+    margin-right: 4%;
+    height: 75%;
+    width: 55%;
+  }
+  
+  .risk-management-text {
+    height: 80%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #be163c;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 0.6em;
+  }
+  
+  .risk-management-btn {
+    height: 50%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    cursor: pointer;
+    color: white;
+    background-color: #be163c;
+    border-radius: 1px;
+    font-size: 0.5em;
+    font-weight: 500;
+  }
+  
+  /*everything inside top section of navabr ends here */
+  
+  /* everything inside bottom section of navbar starts here */
+  
+  .navbar-main-body-bottom {
+    height: 3vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .navbar-item {
+    height: 100%;
+    width: 8.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.05%;
+    margin-right: 0.05%;
+    background-color: #be163c;
+    white-space: nowrap;
+    color: white;
+    /* font-size: 0.55em; */
+    font-size: 0.8vw;
+    cursor: pointer;
+  }
