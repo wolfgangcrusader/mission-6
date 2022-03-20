@@ -273,8 +273,8 @@ const selectsuburbs = [
     {value: 'no', label: 'No'}
   ]
 
-  const [districts, SetDistricts] = useState([]);
-  const [suburb_districts, SetSuburbs] = useState([]);
+  const [districts, SetDistricts] = useState("");
+  const [suburb, SetSuburbs] = useState([]);
   const [price_from, SetPrice_from] = useState([]);
   const [price_to, SetPrice_to] = useState([]);
   const [bedrooms,SetBedrooms] = useState([]);
@@ -282,11 +282,39 @@ const selectsuburbs = [
   const [property_type, SetProperty_type] = useState([]);
   const [pet_friendly, SetPet_friendly] = useState([]);
   const [fibre, SetFibre] = useState([]);
-  const [filtereddata, SetFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    const checkdistrict = (array) => {
+      if (districts !== "Any"){
+        return array.filter((item) => item.city === districts)  
+      } else {
+      return array}}
+
+      const checksuburb = (array) => {
+        if (districts !== "Any"){
+          return array.filter((item) => item.city === districts)  
+        } else {
+        return array}}
+
+      
+      //Filter options updated so apply all filters here
+      let result = products;
+      result = checkdistrict(result);
+      setFilteredData(result);
+}, [products, districts]);
+
+// function HandleSearch(){ 
+//   //Filter options updated so apply all filters here
+//   let result = products;
+//   result = checkdistrict(result);
+//   setFilteredData(result);
+// }
+
 
 
   const [data, setData] = useState([]);
-  const [sortType, setSortType] = useState("listing_id");
+  const [sortType, setSortType] = useState('newdate_listed');
 
 
   useEffect(() => {
@@ -300,12 +328,15 @@ const selectsuburbs = [
         suburb: 'suburb',
         city: 'city', 
         maxprice: 'price',
+        newdate_listed: 'newdate_listed',
       };
       const sortProperty = types[type];
-        const sorted = [...products].sort((a, b) => {
-          if (sortProperty === 'suburb') {
+        const sorted = [...filteredData].sort((a, b) => {
+          if (sortType === 'newdate_listed') {
+            return b.date_listed_int - a.date_listed_int;
+          } else if (sortType === 'suburb') {
             return a.suburb.localeCompare(b.suburb);
-          } else if (sortProperty === 'city') {
+          } else if (sortType === 'city') {
             return a.city.localeCompare(b.city);
           } else if (sortType === 'maxprice') {
             return b.price > a.price ? 1 : -1;
@@ -319,15 +350,25 @@ const selectsuburbs = [
       sortArray(sortType);
     }, [sortType]);
 
+    function refreshPage() {
+      window.location.reload(false);
+    }
 
   return (
     <div className={styles.listings}>
       <Navbar/>
-
       <div className={styles.searchbox}>
-        <h1>Search Rentals in Auckland</h1>
-      <Select className={styles.districts} options={selectdistricts} placeholder="District" onClick={(e) => SetDistricts(e.target.value)}/>
-      <Select className={styles.suburbs} options={selectsuburbs} placeholder="Suburbs" onClick={(e) => SetSuburbs(e.target.value)}/>
+      <h1>Search Rentals in Auckland</h1>
+      <select className={styles.districts} placeholder="District" onChange={(e) => SetDistricts(e.target.value)} >
+      <option value = "Any">Any</option>
+      <option value= "Auckland City">Auckland City</option>
+      <option value= "Manukau City">Manukau City</option>
+      <option value= "North Shore City">North Shore City</option>
+      <option value= "Rodney District">Rodney District</option>
+      </select>
+      <select className={styles.suburbs} options={selectsuburbs} placeholder="Suburbs" onClick={(e) => SetSuburbs(e.target.value)}>
+        
+      </select>
       <Select className={styles.price_from} options={selectprice_from} placeholder="Price From" onClick={(e) => SetPrice_from(e.target.value)}/>
       <Select className={styles.price_to} options={selectprice_to} placeholder="Price To" onClick={(e) => SetPrice_to(e.target.value)}/>
       <Select className={styles.bedrooms} options={selectbedrooms} placeholder="Bedrooms" onClick={(e) => SetBedrooms(e.target.value)}/>
@@ -335,12 +376,12 @@ const selectsuburbs = [
       <Select className={styles.property_type} options={selectproperty_type} placeholder="Property Type" onClick={(e) => SetProperty_type(e.target.value)}/>
       <Select className={styles.pet_friendly} options={selectpet_friendly} placeholder="Pet Friendly" onClick={(e) => SetPet_friendly(e.target.value)}/>
       <Select className={styles.fibre} options={selectfibre} placeholder="Fibre" onClick={(e) => SetFibre(e.target.value)}/>
-      <button className={styles.submit} onClick={"HandleSearch"}>SEARCH</button>
+       <button className={styles.submit} onClick={refreshPage}>SEARCH</button> 
       </div>
       <div className={styles.search}>
         <p>Sort By</p>
       <select onChange={(e) => setSortType(e.target.value)}> 
-      <option value="date_listed">Latest Listings</option>
+      <option value="newdate_listed">Latest Listings</option>
       <option value="olddate_listed">Oldest Listings</option>
         <option value="suburb">Suburb</option>
         <option value="city">City</option>
@@ -363,6 +404,7 @@ const selectsuburbs = [
                   Listed: {product.date_listed}
                 </h2>
                 <h2 className={styles.product2}>{product.address}</h2>
+                <h2 className={styles.product1}>{product.city}</h2>
 
                 <p className={styles.product4}>
                   {" "}
