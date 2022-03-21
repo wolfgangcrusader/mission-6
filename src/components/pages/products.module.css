@@ -2,19 +2,19 @@
   position: absolute;
   background-color: #bababa;
   width: 100%;
-
 }
 
 .searchbox {
   position: relative;
   width: 100vw;
-  height: 28vh;
+  height: 40vh;
   background-color: white;
-  padding-top: 12vh;
+  padding-top: 15vh;
+  padding-left: 2vw;
 }
 
 .searchbox h1 {
-  text-align: center;
+  text-align: left;
   color: #535353;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -22,33 +22,84 @@
   font-size: 1.2em;
 }
 
-.districts, .suburbs, .property_type {
-  width: 12%;
+.selectdiv{
+  padding-top: 2vh;
   float: left;
+  margin-left: 2vw;
+}
+
+select{
+appearance: none;
+background-image: url(../../images/down.png);
+background-repeat: no-repeat;
+background-position: 95%;
+background-size: 0.5vw;
+padding-left: 1vw;
+color: #535353;
+}
+
+.districts, .property_type, .suburbs  {
+  width: 100%;
+  height: 4vh;
   font-size: 0.7vw;
-  margin: 0.2vw;
+  margin-top: 0.2vw;
+  margin-right: 5vw; 
 }
 
 .price_from, .price_to, .bedrooms, .bathrooms, .fibre, .pet_friendly{
-width: 8%;
-float: left;
-  font-size: 0.7vw;
-  margin: 0.2vw;  
+width: 100%;
+height: 4vh;
+font-size: 0.7vw;
+margin: 0.2vw; 
+margin-right: 2vw;  
+}
+
+.selectlabel{
+font-size:0.8vw;
+color: #535353;
 }
 
 .submit{
 border: none;
 background-color:#BF163D;
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+font-size: 1vw;
 color: #FFFFFF;
 height: 8vh;
 width: 8vw;
-margin-left: 1vw;
+position: relative;
+margin-left: 4vw;
+top: 10%;
+}
+
+.sortselect{
+  width: 12%;
+  position: relative;
+  float: right;
+  top: -70%;
+  left: -3%;
+}
+
+.search{
+  height: 20vh;
+  padding: 2vh;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid gray;
+}
+
+.search h3{
+  font-size:1.5vw;
+  position: relative;
+  color: #535353;
+  left: 85%;
+  top: -70%;
 }
 
 .container {
   background-color: #bababa;
   width: 100%;
+  padding-top: 2vh;
 }
 
 .images{
@@ -73,18 +124,23 @@ width: 100%;
   height: 50vh;
 }
 
-/* .listcontainer{
-    width: 40%;
-    position: relative;
-    left: 30%;
-    top: 20%;
-    background-color:rgb(160, 158, 158);
-    color:white;
-font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    border-radius: 10px;
-    padding: 2vw;
-} */
+.advanced{
+  text-align: center;
+  font-size: 1vw;
+}
+
+.advancedpopout{
+  background-color: white;
+  height: 4vh;
+}
+
+.descicons{
+  position: relative;
+  width: 80%;
+  color: #535353;
+  text-align: left;
+  font-size: 1vw;
+}
 
 .product1,
 .product3,
@@ -112,9 +168,7 @@ font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubunt
 
 .product6 {
   font-weight: bold;
-  position: absolute;
-  left: 28%;
-  top: 45vh;
+  align-content: center;
 }
 
 .container a {
