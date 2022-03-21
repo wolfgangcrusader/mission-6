@@ -290,14 +290,7 @@ const selectsuburbs = [
         return array.filter((item) => item.city === districts)  
       } else {
       return array}}
-
-      const checksuburb = (array) => {
-        if (districts !== "Any"){
-          return array.filter((item) => item.city === districts)  
-        } else {
-        return array}}
-
-      
+     
       //Filter options updated so apply all filters here
       let result = products;
       result = checkdistrict(result);
@@ -359,6 +352,7 @@ const selectsuburbs = [
       <Navbar/>
       <div className={styles.searchbox}>
       <h1>Search Rentals in Auckland</h1>
+
       <select className={styles.districts} placeholder="District" onChange={(e) => SetDistricts(e.target.value)} >
       <option value = "Any">Any</option>
       <option value= "Auckland City">Auckland City</option>
@@ -366,9 +360,14 @@ const selectsuburbs = [
       <option value= "North Shore City">North Shore City</option>
       <option value= "Rodney District">Rodney District</option>
       </select>
-      <select className={styles.suburbs} options={selectsuburbs} placeholder="Suburbs" onClick={(e) => SetSuburbs(e.target.value)}>
-        
+
+      <select className={styles.suburbs} placeholder="Suburbs" onChange={(e) => SetSuburbs(e.target.value)}>
+      <option value= "Any">Any</option>
+      {products.map((data) =>(
+      <option value= {data.suburb}>{data.suburb}</option>   
+      ))}
       </select>
+      
       <Select className={styles.price_from} options={selectprice_from} placeholder="Price From" onClick={(e) => SetPrice_from(e.target.value)}/>
       <Select className={styles.price_to} options={selectprice_to} placeholder="Price To" onClick={(e) => SetPrice_to(e.target.value)}/>
       <Select className={styles.bedrooms} options={selectbedrooms} placeholder="Bedrooms" onClick={(e) => SetBedrooms(e.target.value)}/>
@@ -378,6 +377,7 @@ const selectsuburbs = [
       <Select className={styles.fibre} options={selectfibre} placeholder="Fibre" onClick={(e) => SetFibre(e.target.value)}/>
        <button className={styles.submit} onClick={refreshPage}>SEARCH</button> 
       </div>
+
       <div className={styles.search}>
         <p>Sort By</p>
       <select onChange={(e) => setSortType(e.target.value)}> 
@@ -418,7 +418,7 @@ const selectsuburbs = [
                 {nature[product.nature]}{" "}
                 {sport[product.sport]}
                 </p>
-                <p className={styles.product5}>Rent: ${product.price}</p>
+                <p className={styles.product5}>Rent: ${product.price} </p>
               </div>
             </Card>
           </a>
