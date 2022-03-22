@@ -11,6 +11,8 @@ import {
   FaEnvira,
   FaWater,
   FaFootballBall,
+  FaChevronDown,
+  FaChevronUp,
 } from "react-icons/fa";
 import { MdFamilyRestroom } from "react-icons/md";
 import Navbar from "../Navbar.js";
@@ -207,13 +209,36 @@ const Products = () => {
     window.location.reload(false);
   }
 
+  const [activeButton, setActiveButton] = useState(false);
+
+  const handleClick = () => {
+    setActiveButton(!activeButton);
+    myFunction();
+  };
+
+function myFunction() {
+  let x = document.getElementById("searchbox");
+  let y = document.getElementById("expand");
+  if (y.style.display === "block") {
+    y.style.display = "none";
+    x.style.height = "35vh";  
+  } else {
+    y.style.display = "block"
+    y.style.backgroundColor = "white";
+    y.style.width = "100%";
+    y.style.height = "10vh";
+    y.style.position = "relative"; 
+    x.style.height = "40vh";  
+  }
+ }
+
   return (
     <div className={styles.listings}>
       <Navbar />
-      <div className={styles.searchbox}>
+      <div className={styles.searchbox} id="searchbox">
         <h1>Search Rentals in Auckland</h1>
 
-        <div className={styles.selectdiv}>
+        <div className={styles.selectdivalt}>
           <h4 className={styles.selectlabel}>Location:</h4>
           <select
             className={styles.districts}
@@ -500,14 +525,37 @@ const Products = () => {
         <button className={styles.submit} onClick={refreshPage}>
           Reset Filters
         </button>
+
       </div>
+
+      
+      <div id = "expand" style={{"display":"none"}}>
+      <div className={styles.selectdiv}>
+          <h4 className={styles.selectlabel}>Carparks:</h4>
+          <select
+            className={styles.fibre}
+            onChange={""}
+          >
+            <option value="Any">Any</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        </div>
+
       <div className={styles.advancedpopout}>
-        <h3 className={styles.advanced}>Advanced Search</h3>
-      </div>
+        <div className={styles.advanced} onClick={handleClick}>
+          Advanced Search
+        <button onClick={handleClick} className={styles.planarrow}>
+              {activeButton ? <FaChevronDown /> : <FaChevronUp />}
+            </button>
+        </div>
+        
+        </div>
 
       <div className={styles.search}>
         <div className={styles.descicons}>
-          <p>Showing 255 results</p>
+          <h4>Showing 255 results</h4>
           <p>
             See the immediate neighbourhood’s characteristics at a glance -{" "}
             Downtown <FaCity /> Entertainment <FaTheaterMasks /> Shopping{" "}
