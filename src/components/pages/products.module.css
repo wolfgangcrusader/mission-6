@@ -2,15 +2,40 @@
   position: absolute;
   background-color: #bababa;
   width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+  cursor: pointer;
+  select: none;
 }
 
 .searchbox {
   position: relative;
   width: 100vw;
-  height: 35vh;
+  height: 32vh;
   background-color: white;
   padding-top: 15vh;
   padding-left: 2vw;
+}
+
+.noresults{
+  width: 100%;
+  border-left: 5vw solid #bababa;
+  border-right: 5vw solid #bababa;
+  position: relative;
+  background-color:white;
+}
+
+.noresults h1{
+  font-size:1vw;
+  padding: 2vw;
+  text-align: center;
+  color:#393939;
+  height: 10vh;
+}
+
+input{
+font-size: 0.8vw;
+width: 100%;
+height: 4vh;
 }
 
 .searchbox h1 {
@@ -33,7 +58,14 @@
   float: left;
 }
 
+.hoveroption:hover{
+  width: 100%;
+  background-color: #BF163D;
+
+}
+
 select{
+-webkit-appearance: none;
 appearance: none;
 background-image: url(../../images/down.png);
 background-repeat: no-repeat;
@@ -43,7 +75,15 @@ padding-left: 1vw;
 color: #535353;
 }
 
- .property_type, .suburbs  {
+option:disabled{
+display: none;
+}
+
+.select-selected {
+  background-color: #535353;
+}
+
+ .property_type, .suburbs, .access, .furnishing, .lease  {
   width: 100%;
   height: 4vh;
   font-size: 0.7vw;
@@ -59,7 +99,7 @@ color: #535353;
   margin-right: 5vw;  
 }
 
-.price_from, .price_to, .bedrooms, .bathrooms, .fibre, .pet_friendly{
+.price_from, .price_to, .bedrooms, .bathrooms, .fibre, .pet_friendly, .carparks, .yard, .balcony{
 width: 100%;
 height: 4vh;
 font-size: 0.7vw;
@@ -82,19 +122,20 @@ height: 5vh;
 width: 12vw;
 position: relative;
 margin-left: 2vw;
-top: 25%;
+top: 30%;
 }
 
 .sortselect{
   width: 12%;
+  height: 3.5vh;
   position: relative;
-  float: right;
-  top: -10%;
-  left: 0%;
+  top: -8vh;
+  left: 75%;
+  font-size: 0.8vw;
 }
 
 .search{
-  height: 20vh;
+  height: 10vh;
   padding: 2vh;
   width: 100%;
   background-color: white;
@@ -106,14 +147,45 @@ top: 25%;
   font-size:1vw;
   position: relative;
   color: #535353;
-  left: 84%;
-  top: 18%;
+  left: 12%;
+  top: -3.5vh;
 }
+
+.mapbutton{
+  width: 12%;
+  height: 3.5vh;
+  position: relative;
+  top: -11.5vh;
+  left: 88%;
+  border: 1px solid gray;
+  color: #BF163D;
+  padding-left: 0.5vw;
+  padding-top: 0.5vh;
+}
+
+.mapbutton h2{
+width: 80%;
+font-size: 0.8vw;
+}
+
+.mapbutton h3{
+  position: relative;
+  left: 85%;
+  top: -4vh;
+  font-size: 1vw;
+  color: #BF163D;
+  }
 
 .container {
   background-color: #bababa;
   width: 100%;
   padding-top: 2vh;
+  padding-left: 2.5vw;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 52vh;
 }
 
 .images{
@@ -123,9 +195,8 @@ width: 100%;
 .card {
   background-color: rgb(190, 189, 189);
   width: 20vw;
-  float: left;
   height: 50vh;
-  margin: 0.5vw;
+  margin: 0.2vw;  
 }
 
 .products_content {
@@ -156,7 +227,6 @@ width: 100%;
 .descicons{
   position: relative;
   width: 80%;
-  top: 50%;
   color: #535353;
   text-align: left;
   font-size: 0.8vw;
@@ -164,6 +234,27 @@ width: 100%;
 
 .descicons h4{
   font-size: 1vw;
+  margin-left: 3.5vw;
+}
+
+.descicons li{
+  list-style-type: none;
+  float: left;
+  margin-left: 0.5vw;
+}
+
+.tiptitle{
+  font-weight: bold;
+}
+
+.tooltip{
+  font-size: 0.8vw;
+}
+
+.reacttip{
+line-height: 1.6vh;
+width: 19vw;
+height: 14vh;
 }
 
 .product1,
