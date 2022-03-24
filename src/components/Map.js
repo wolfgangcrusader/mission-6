@@ -18,12 +18,7 @@ Layer,
   GeolocateControl} from 'react-map-gl';
 import HouseMarker from "../images/marker.png"
 import LISTINGS from './geo.json';
-import { map } from "react-bootstrap/esm/ElementChildren";
-
-
-mapboxgl.accessToken =
-  "pk.eyJ1Ijoid29sZmdhbmdjcnVzYWRlciIsImEiOiJjbDBsOTA4b3owZmVxM2JwZWRpcnJkZ2x3In0.EAXqRGKAgKmXD9zLOguiPA";
-
+import STYLINGS from './style.json'
 
 
 const MapLocations = () => {
@@ -60,7 +55,7 @@ const MapLocations = () => {
         compact: false
       }}
       style={{width: '97vw', height: '80vh'}}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapStyle={STYLINGS}
     >
 
 <GeolocateControl position="top-left" />
