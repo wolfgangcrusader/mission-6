@@ -32,9 +32,9 @@ const Products = () => {
     setIsLoading(true);
     axios
       .post(
-        "http://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"
+        "https://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"
       )
-      .then (axios.get("http://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"))
+      .then (axios.get("https://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"))
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);
