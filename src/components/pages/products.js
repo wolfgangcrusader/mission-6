@@ -21,29 +21,31 @@ import ReactTooltip from 'react-tooltip';
 import Navbar from "../Navbar.js";
 import LoadingSpinner from "../spinner";
 import styles from "./products.module.css";
+import RENTALS from '../data.json'
 
 const Products = () => {
   //Getting data from MongoDB//
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(RENTALS);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .post(
-        "https://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"
-      )
-      .then (axios.get("https://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"))
-      .then((res) => {
-        setProducts(res.data);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setErrorMessage("Unable to fetch user list");
-        setIsLoading(false);
-      });
-  }, []);
+
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   axios
+  //     .post(
+  //       "http://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"
+  //     )
+  //     .then((res) => {
+  //       setProducts(res.data);
+  //       setIsLoading(false);
+  //     })
+  //     .catch(() => {
+  //       setErrorMessage("Unable to fetch user list");
+  //       setIsLoading(false);
+  //     });
+  // }, []);
 
   let downtown = {
     1: <FaCity />,
@@ -490,16 +492,6 @@ Perhaps you may be interested in these similar listings.</h1>
       }
     }
 
-    const resetvalues = () => {
-      myResetFunction();
-
-    }
-
-  function myResetFunction() {
-    SetYard('Any');
-    SetCarparks('Any');
-    SetBalcony('Any');
-  }
 
 
   return (
@@ -949,15 +941,12 @@ Perhaps you may be interested in these similar listings.</h1>
       
 
       <div>  
-        {isLoading ? <LoadingSpinner /> : 
-        <div className={styles.listingscontainer}> 
+        {isempty ? <div className={styles.listingscontainer}> 
         <div id = "map" className={styles.mapbox} style={{ display: "none" }}>
         <MapLocations/>
         </div>
         <div className={styles.container}>      
-          {currentPageData}</div></div>}
-        {errorMessage && <div className="error">{errorMessage}</div>}
-        {isempty ? " " : EmptyAssArray}
+          {currentPageData}</div></div> : EmptyAssArray}
       </div> 
       <div className="yeet">  
       <ReactPaginate
