@@ -28,12 +28,13 @@ body {
   
   .listing-page-property-veiw-container {
     position: absolute;
+    top: 13%;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
     width: 40vw;
-    height: 84vh;
+    height: 86vh;
     background-color: #be163c;
     display: flex;
     align-items: center;
@@ -54,21 +55,66 @@ body {
   
   .listing-page-property-veiw-container-date {
     height: 10%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 50%;
+    display: block;
     flex-direction: row;
     font-weight: 500;
-    margin-bottom: 3%;
+    margin-bottom: 10%;
+    margin-left: 43%;
+    border: none;
+  }
+
+  .listing-page-property-veiw-container-date2 {
+    position: absolute;
+    height: 10%;
+    top: 5%;
+    width: 50%;
+    display: block;
+    flex-direction: row;
+    line-height: 1vh;
+    font-weight: 500;
+    margin-right: 43%;
     border: none;
   }
   
-  .listing-page-property-veiw-container-date-label,
-  .listing-page-property-veiw-container-date-input {
+  .listing-page-property-veiw-container-date-label
+   {
     margin: 1%;
-    white-space: nowrap;
-    font-size: 1.3vw;
+    white-space: wrap;
+    font-size: 1vw;
+  }
+
+.listing-page-property-veiw-container-dropdown2{
+  margin-bottom: 7%;
+}
+
+ select{
+    height: 4vh;
+    width: 17.5vw;
+    font-size: 0.8vw;
+    margin-bottom: 1%;
+  }
+
+  .booknow input{
+    position: absolute;
+    top: 50%;
+  }
+  .booknow label{
+    position: absolute;
+    top: 60%;
+    left: 12%;
+  }
+
+  .askonly input{
+    position: absolute;
+    top: 120%;
+
+  }
+
+  .askonly label{
+    position: absolute;
+    top: 140%;
+    left: 12%;
   }
   
   .listing-page-property-veiw-container-title {
@@ -89,7 +135,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     font-size: 1.1vw;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
   }
   
   .listing-page-property-veiw-container-email-input {
@@ -387,6 +433,50 @@ body {
     height: 98%;
     width: 98%;
   }
+
+  .fakeassbuttons{
+    position: relative;
+
+  }
+
+  .buttonstuff1{
+    position: absolute;
+    background-color: white;
+    color: gray;
+    width: 6vw;
+    height: 5vh;
+    border-right: 1px solid gray;
+    text-align: center;
+    top: 85%;
+    left:28%;
+    cursor: pointer;
+  }
+  .buttonstuff2{
+    position: absolute;
+    background-color: white;
+    color: gray;
+    width: 8vw;
+    border-right: 1px solid gray;
+    text-align: center;
+    height: 5vh;
+    top: 85%;
+    left:34%;
+    cursor: pointer;
+  }
+  .buttonstuff3{
+    position: absolute;
+    background-color: white;
+    color: gray;
+    width: 11vw;
+    height: 5vh;
+    border-right: 1px solid gray;
+    text-align: center;
+    top: 85%;
+    left:42%;
+    cursor: pointer;
+  }
+  
+  
   
   .listing-page-main-body-content-bottom-right {
     display: flex;

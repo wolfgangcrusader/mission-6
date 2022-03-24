@@ -1,24 +1,38 @@
 import './listing.css';
 import {
   FaBed,
-  FaBath} from 'react-icons/fa'
+  FaBath, 
+  FaVideo, 
+  FaBuilding,
+  FaDrawPolygon
+} from 'react-icons/fa'
 // import bedicon from './images/bedicon.png'
 // import bathicon from './images/bathicon.png'
 import Navbar from '../Navbar'
 import { useParams } from "react-router-dom"
-import axios from 'axios'
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 // const id = 7
 
 
 export default function Listing() {
   const [showViewProperty, setShowViewProperty] = useState('noForm')
+  const [enquire, setEnquire] = useState('noForm')
+
   const { id } = useParams()
   const handleClick = () => {
     setShowViewProperty('showForm')
   }
   const handleClickBack = () => {
-    setShowViewProperty('noForm')
+    setShowViewProperty('noForm');
+    setEnquire('noForm');
+  }
+  const handleClick2 = () => {
+    setEnquire('showForm')
+  }
+  const handleClickBack2 = () => {
+    setEnquire('noForm')
   }
 
 
@@ -104,6 +118,8 @@ export default function Listing() {
     1: <div> Dog Park </div>
   }
 
+  const [chooseoption, SetChooseOption] = useState()
+
   //mapping allows for any listing clicked on on the previous page to be presented in the same manner, given they share the same 'key' names in the database. 
   //allows the app to display thousands of listings
 
@@ -119,8 +135,38 @@ export default function Listing() {
                 <div className='listing-page-property-veiw-container-body'>
                   <div className='listing-page-property-veiw-container-title'>Property Viewing</div>
                   <div className='listing-page-property-veiw-container-date'>
+                    <label className='listing-page-property-veiw-container-date-label'> Select a viewing date</label>
+                    <select className='listing-page-property-veiw-container-dropdown'>
+                      <option >Choose a viewing date</option>
+                      <option>21st April 2022</option>
+                      <option>22nd April 2022</option>
+                      <option>23rd April 2022</option>
+                      <option>24th April 2022</option>                      
+                    </select>
                     <label className='listing-page-property-veiw-container-date-label'> Select a viewing time</label>
-                    <input type="date" className='listing-page-property-veiw-container-date-input'></input>
+                    <select className='listing-page-property-veiw-container-dropdown2'>
+                      <option>Choose a viewing time</option>
+                      <option>2:30pm</option>
+                      <option>3:35pm</option>
+                      <option>3:50pm</option>
+                      <option>4:10pm</option>                      
+                    </select>
+                  </div>
+                  < div className='listing-page-property-veiw-container-date2'>
+            
+                              <br/><br/>
+                    <div className="booknow">
+                    
+                    <input type="radio" name="yourmum" onClick={""} checked={true}></input>
+                    <label>Book Now</label>
+                    </div>
+
+                    <div className="askonly">
+                    
+                    <input type="radio" name="yourmum" onClick={()=>{handleClick(); handleClick2()}}></input>
+                    <label>Ask Only</label>
+                    </div>
+
                   </div>
                   <div className='listing-page-property-veiw-container-email'>
                     <label>Enter your email address</label>
@@ -152,6 +198,63 @@ export default function Listing() {
                   <div className='listing-page-property-view-container-action-btns'>
                     <div className='listing-page-property-view-container-action-btns-close'>Book</div>
                     <div className='listing-page-property-view-container-action-btns-book' onClick={handleClickBack}>Close</div>
+
+                  </div>
+                </div>
+              </div>}
+              {enquire === 'showForm' &&
+              <div className='listing-page-property-veiw-container'>
+                <div className='listing-page-property-veiw-container-body'>
+                  <div className='listing-page-property-veiw-container-title'>Property Enquiry</div>
+                  <div className='listing-page-property-veiw-container-date'>
+                    
+                  </div>
+                  < div className='listing-page-property-veiw-container-date2'>
+            
+            <br/><br/>
+  <div className="booknow">
+  
+  <input type="radio" name="yourmum" onClick={()=>{handleClickBack2(); handleClick()}}></input>
+  <label>Book Now</label>
+  </div>
+
+  <div className="askonly">
+  
+  <input type="radio" name="yourmum" onClick={""} checked={true}></input>
+  <label>Ask Only</label>
+  </div>
+
+</div>
+                  <div className='listing-page-property-veiw-container-email'>
+                    <label>Enter your email address</label>
+                    <input placeholder='example@mail.com'
+                      className='listing-page-property-veiw-container-email-input'></input>
+                  </div>
+                  <div className='listing-page-property-veiw-container-names'>
+                    <div className='listing-page-property-veiw-container-firstname'>
+                      <label className='listing-page-property-veiw-container-firstname-label'>First Name</label>
+                      <input className='listing-page-property-veiw-container-lastname-input'></input>
+                    </div>
+                    <div className='listing-page-property-veiw-container-lastname'>
+                      <label className='listing-page-property-veiw-container-lastname-label'>Last Name</label>
+                      <input className='listing-page-property-veiw-container-lastname-input'></input>
+                    </div>
+                  </div>
+                  <div className='listing-page-property-view-container-mobile'>
+                    <label className='listing-page-property-view-container-mobile-label'>Mobile Number</label>
+                    <input className='listing-page-property-view-container-mobile-input'></input>
+                  </div>
+                  <div className='listing-page-property-view-container-special'>
+                    <div className='listing-page-property-view-container-special-view-count'>No. of viewers <input className='listing-page-property-view-container-special-view-count-input'></input></div>
+                    <div className='listing-page-property-view-container-special-vacc-pass'>Upload your Vaccine     Pass<div className='listing-page-property-view-container-special-vacc-pass-btn'>Upload</div>
+                    </div>
+                  </div>
+                  <div className='listing-page-property-view-container-text-area'>
+                    <textarea className='listing-page-property-view-container-text-area-itself'></textarea>
+                  </div>
+                  <div className='listing-page-property-view-container-action-btns'>
+                    <div className='listing-page-property-view-container-action-btns-close'>Send</div>
+                    <div className='listing-page-property-view-container-action-btns-book' onClick={handleClickBack2}>Close</div>
 
                   </div>
                 </div>
@@ -188,6 +291,9 @@ export default function Listing() {
                   src={attribute.images}
                   className="listing-page-property-image"
                 ></img>
+                <div classname="fakeassbuttons">
+                <div className='buttonstuff1'><FaVideo/> Video</div> <div className='buttonstuff2'><FaBuilding/> Floorplan</div> <div className='buttonstuff3'><FaDrawPolygon/> 3D Virtual Tour</div>
+                </div>
               </div>
               <div className='listing-page-main-body-content-bottom-right'>
                 <div className='listing-page-main-body-content-bottom-right-top'>
