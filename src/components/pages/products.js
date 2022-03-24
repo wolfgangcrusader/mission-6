@@ -15,6 +15,7 @@ import {
   FaChevronUp,
   FaMapMarkedAlt,
 } from "react-icons/fa";
+import MapLocations from '../Map.js'
 import { MdFamilyRestroom } from "react-icons/md";
 import ReactTooltip from 'react-tooltip';
 import Navbar from "../Navbar.js";
@@ -322,14 +323,14 @@ const Products = () => {
     let y = document.getElementById("expand");
     if (y.style.display === "block") {
       y.style.display = "none";
-      x.style.height = "32vh";
+      x.style.height = "35vh";
     } else {
       y.style.display = "block";
       y.style.backgroundColor = "white";
       y.style.width = "100%";
       y.style.height = "12vh";
       y.style.position = "relative";
-      x.style.height = "32vh";
+      x.style.height = "35vh";
     }
   }
   
@@ -473,10 +474,25 @@ Perhaps you may be interested in these similar listings.</h1>
     const pageCount = Math.ceil(data.length / PER_PAGE);
 
 
+    const handleClick2 = () => {
+      myFunction2();
+    };
+  
+    function myFunction2() {
+      let y = document.getElementById("map");
+      if (y.style.display === "block") {
+        y.style.display = "none";
+      } else {
+        y.style.display = "block";
+        y.style.position = "relative";
+      }
+    }
+
+
   return (
     <div className={styles.listings}>
       <Navbar />
-      <div className={styles.searchbox} id="searchbox">
+      <div className={styles.searchbox} id="searchbox2">
         <h1>Search Rentals in Auckland</h1>
 
         <div className={styles.selectdivalt}>
@@ -823,7 +839,7 @@ Perhaps you may be interested in these similar listings.</h1>
       <div className={styles.advancedpopout}>
         <div className={styles.advanced} onClick={handleClick}>
           Advanced Search
-          <button onClick={handleClick} className={styles.planarrow}>
+          <button className={styles.planarrow}>
             {activeButton ? <FaChevronDown /> : <FaChevronUp />}
           </button>
         </div>
@@ -909,7 +925,7 @@ Perhaps you may be interested in these similar listings.</h1>
           <option value="price"> Lowest Rent</option>
           <option value="maxprice"> Highest Rent</option>
         </select>
-        <div className={styles.mapbutton}>
+        <div className={styles.mapbutton} onClick={handleClick2}>
           <h2> View by Map</h2>
           <h3>
             <FaMapMarkedAlt />
@@ -917,13 +933,20 @@ Perhaps you may be interested in these similar listings.</h1>
         </div>
       </div>
 
+      
+
       <div>  
-        {isLoading ? <LoadingSpinner /> : <div className={styles.container}>{currentPageData}</div>}
+        {isLoading ? <LoadingSpinner /> : 
+        <div className={styles.listingscontainer}> 
+        <div id = "map" className={styles.mapbox} style={{ display: "none" }}>
+        <MapLocations/>
+        </div>
+        <div className={styles.container}>      
+          {currentPageData}</div></div>}
         {errorMessage && <div className="error">{errorMessage}</div>}
         {isempty ? " " : EmptyAssArray}
       </div> 
-
-      <div>  
+      <div className="yeet">  
       <ReactPaginate
         previousLabel={"Previous"}
         nextLabel={"Next"}
@@ -934,7 +957,8 @@ Perhaps you may be interested in these similar listings.</h1>
         nextLinkClassName={"pagination__link"}
         disabledClassName={"pagination__link--disabled"}
         activeClassName={"pagination__link--active"}
-      />     
+      />
+      
       </div>
     </div>
   );

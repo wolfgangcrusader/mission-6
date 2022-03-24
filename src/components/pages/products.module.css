@@ -10,7 +10,7 @@
 .searchbox {
   position: relative;
   width: 100vw;
-  height: 32vh;
+  height: 35vh;
   background-color: white;
   padding-top: 15vh;
   padding-left: 2vw;
@@ -175,6 +175,12 @@ font-size: 0.8vw;
   font-size: 1vw;
   color: #BF163D;
   }
+
+.mapbox{
+  width: 80vw;
+  left: 53%;
+  background: none;
+}
 
 .container {
   background-color: #bababa;
