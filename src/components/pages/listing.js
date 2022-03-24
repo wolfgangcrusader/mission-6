@@ -38,14 +38,12 @@ export default function Listing() {
 
 
 
+let attribute = RENTALS[id];
 
 
 
- let result = RENTALS.find(obj => {
-    return obj.listing_id === id
-  })
 
-  const [listingData, setListingData] = useState(result);
+  const [listingData, setListingData] = useState();
 
 
   //conditional rendering for attributes
@@ -119,7 +117,7 @@ export default function Listing() {
 
   return (<div className='listing-main-body'>
     <Navbar />
-    {listingData.map((attribute) => (
+    
       <>
         <div className='listing-page-main-body'>
           <div className='whitespace-navbar-buffer'></div>
@@ -355,7 +353,7 @@ export default function Listing() {
           </div>
         </div>
       </>
-    ))}
+   
 
   </div>
   )
