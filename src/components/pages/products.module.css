@@ -177,9 +177,13 @@ font-size: 0.8vw;
   }
 
 .mapbox{
-  width: 80vw;
-  left: 53%;
-  background: none;
+  position: relative;
+  width: 100%;
+  padding: 1vw;
+  /* top: 15%;
+  left: 51%; */
+  background-color:  #535353;
+  z-index: 33;
 }
 
 .container {

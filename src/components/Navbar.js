@@ -22,7 +22,7 @@ export default function Navbar() {
                 <div className='navbar-item'>Property Management</div>
                 <div className='navbar-item'>Property Search</div>
                 <div className='navbar-item'>Body Corporate</div>
-                <div className='navbar-item'>Commerical</div>
+                <div className='navbar-item'>Commercial</div>
                 <div className='navbar-item'>Waiheke Escapes</div>
                 <div className='navbar-item'>FAQs & Contact Us</div>
 

@@ -1,10 +1,24 @@
 import axios from "axios";
 import { useRef, useEffect, useState, useMemo} from "react";
+import { Card } from "react-bootstrap";
+import {
+  FaBed,
+  FaBath
+} from "react-icons/fa";
 import mapboxgl from "mapbox-gl";
 import './Map.css'
-import Map, {Source, Layer, Popup, Marker} from 'react-map-gl';
+import Map, 
+{Source,
+Layer,
+  Popup,
+  Marker,
+ NavigationControl,
+  FullscreenControl,
+  ScaleControl,
+  GeolocateControl} from 'react-map-gl';
 import HouseMarker from "../images/marker.png"
 import LISTINGS from './geo.json';
+import { map } from "react-bootstrap/esm/ElementChildren";
 
 
 mapboxgl.accessToken =
@@ -33,17 +47,26 @@ const MapLocations = () => {
     []
   );
 
-
   return (
     <Map
+    id = "map"
       initialViewState={{
         longitude: 174.6165136,
         latitude: -36.8791001,
-        zoom: 10
+        zoom: 10,
+        pitchAlignment: 'viewport',
+        doubleClickZoom: true,
+        trackResize: true,
+        compact: false
       }}
-      style={{width: 600, height: 400}}
+      style={{width: '97vw', height: '80vh'}}
       mapStyle="mapbox://styles/mapbox/streets-v9"
     >
+
+<GeolocateControl position="top-left" />
+        <FullscreenControl position="top-left" />
+        <NavigationControl position="top-left" />
+        <ScaleControl />
 {pins}
 
 {popupInfo && (
@@ -54,13 +77,21 @@ const MapLocations = () => {
     closeOnClick={false}
     onClose={() => setPopupInfo(null)}
   >
-    <div>
-      <a
+    
+    <div className="popup">
+    <div className="imgdiv"> 
+    <img src={popupInfo.images} className="popupInfoimage" />        
+    </div>
+    <div className="detaildiv">
+         <h4>{popupInfo.address}</h4>
+         <p>Availble: {popupInfo.availability} 2022</p>
+         <p><FaBed /> {popupInfo.bedroom_count}{" "} <FaBath />{" "}{popupInfo.bathroom_count}</p>
+         <p className="popupprice">$ {popupInfo.price}</p> 
+         <a
         target="_new"
-        href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${popupInfo.city}, ${popupInfo.suburb}`}
-      >
-        Wikipedia
-      </a>
+        href={`${popupInfo.listing_id}`}
+      > View Listing</a>    
+      </div>
     </div>
   </Popup>
 )}

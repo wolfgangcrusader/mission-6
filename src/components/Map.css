@@ -1,12 +1,60 @@
-.map-container{
-width: 100vw;
-height: 50vh;
-}
-
-
 .marker {
   border: none;
   cursor: pointer;
   height: 56px;
   width: 56px;
 }
+
+.marker:hover{
+  border: none;
+  cursor: pointer;
+  height: 76px;
+  width: 76px;
+}
+
+.popup{
+  width: 40vw;
+  height: 10vh;
+  select: none;
+  color: #000;
+  user-select: none;
+}
+
+.popup a{
+  position: absolute;
+  top: 95%;
+  color: #000;
+}
+
+.imgdiv{
+  width: 50%;
+}
+
+.detaildiv{
+  position: absolute;
+  width: 50%;
+  left: 45%;
+  font-size: 0.6vw;
+  line-height: 0.1;
+}
+
+.detaildiv h4{
+  font-size: 0.8vw;
+  font-weight:bold;
+}
+
+.popupprice{
+  position: absolute;
+  left: 80%;
+  top: 95%;
+}
+
+.popupInfoimage{
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 8vw;
+  height: 14vh;
+  select: none;
+}
+

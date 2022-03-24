@@ -34,6 +34,7 @@ const Products = () => {
       .post(
         "http://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"
       )
+      .then (axios.get("http://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingCollectionData"))
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);
@@ -163,10 +164,12 @@ const Products = () => {
     };
 
     const checkparks = (array) => {
-      if (carparks !== "Any") {
-        return array.filter(
-          (item) => item.offstreet_parking + item.onstreet_parking >= carparks
-        );
+      if (carparks === "1") {
+        return array.filter((item) => item.offstreet_parking > 1);
+      } else if (carparks === "2") {
+        return array.filter((item) => item.offstreet_parking > 2);
+      } else if (carparks === "3") {
+        return array.filter((item) => item.offstreet_parking > 3);
       } else {
         return array;
       }
@@ -484,9 +487,19 @@ Perhaps you may be interested in these similar listings.</h1>
         y.style.display = "none";
       } else {
         y.style.display = "block";
-        y.style.position = "relative";
       }
     }
+
+    const resetvalues = () => {
+      myResetFunction();
+
+    }
+
+  function myResetFunction() {
+    SetYard('Any');
+    SetCarparks('Any');
+    SetBalcony('Any');
+  }
 
 
   return (
@@ -840,7 +853,7 @@ Perhaps you may be interested in these similar listings.</h1>
         <div className={styles.advanced} onClick={handleClick}>
           Advanced Search
           <button className={styles.planarrow}>
-            {activeButton ? <FaChevronDown /> : <FaChevronUp />}
+            {activeButton ? <FaChevronUp /> : <FaChevronDown />}
           </button>
         </div>
       </div>
