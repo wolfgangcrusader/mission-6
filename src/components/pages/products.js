@@ -410,7 +410,7 @@ const Products = () => {
 Perhaps you may be interested in these similar listings.</h1>
       <div className={styles.container}>       
         {issimilar.slice(69,73).map((product) => (
-       <a href={`https://623c914435233a00097c41ce--neish-grays-mission6.netlify.app/${product.listing_id}`}>
+       <a href={`/${product.listing_id}`}>
        <Card className={styles.card} key={product.id}>
          <Card.Img
            variant="top"
@@ -451,7 +451,7 @@ Perhaps you may be interested in these similar listings.</h1>
     const currentPageData = data
       .slice(offset, offset + PER_PAGE)
       .map((product) => (
-            <a href={`https://623c914435233a00097c41ce--neish-grays-mission6.netlify.app/${product.listing_id}`}>
+            <a href={`/${product.listing_id}`}>
               <Card className={styles.card} key={product.id}>
                 <Card.Img
                   variant="top"

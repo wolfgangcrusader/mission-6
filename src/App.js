@@ -12,8 +12,8 @@ function App() {
        <Router>
         <Routes>
           <Route path="/" element={<RentalSearch/>}/>
-          <Route path="https://623c914435233a00097c41ce--neish-grays-mission6.netlify.app/:id" element={<Listing />} />
-          <Route path="https://623c914435233a00097c41ce--neish-grays-mission6.netlify.app/map" element={<MapLocations/>}/>
+          <Route path="/:id" element={<Listing />} />
+          <Route path="/map" element={<MapLocations/>}/>
         </Routes>
       </Router>    
   );
