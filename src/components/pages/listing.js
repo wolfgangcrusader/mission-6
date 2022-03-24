@@ -13,6 +13,7 @@ import { useParams } from "react-router-dom"
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
+import RENTALS from '../data.json'
 // const id = 7
 
 
@@ -38,21 +39,14 @@ export default function Listing() {
 
 
 
-  const [listingData, setListingData] = useState([]);
 
 
+ let result = RENTALS.find(obj => {
+    return obj.listing_id === id
+  })
 
-  //axios request to get listing details on any listing from its id. 
+  const [listingData, setListingData] = useState(result);
 
-  useEffect(() => {
-    axios.get(`http://ebsnodeapplication-env.eba-p7evdbqp.us-east-1.elasticbeanstalk.com/listingData/${id}`)
-      .then(res => {
-        setListingData(res.data)
-        // console.log(listingData)
-        console.log(res.data)
-        console.log('test')
-      })
-  }, [id])
 
   //conditional rendering for attributes
 
